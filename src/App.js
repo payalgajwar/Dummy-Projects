@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import UserData from "./components/UserData";
+// import
 
-function App() {
+const App = () => {
+  // state variable for header Nav-items
+  const [login, setLogin] = useState("Login");
+  const [text, setText] = useState(" ");
+
+  // API call to get restaurant data
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button>Home</button>
+      <input onChange={() => text === setText()}></input>
+
+      <button
+        onClick={() =>
+          login === "Login" ? setLogin("Logout") : setLogin("Login")
+        }
+      >
+        {" "}
+        {login}
+      </button>
+      <button>Cart</button>
+      <UserData />
     </div>
   );
-}
+};
 
 export default App;
